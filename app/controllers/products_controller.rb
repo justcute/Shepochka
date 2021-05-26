@@ -39,7 +39,10 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1 or /products/1.json
   def update
     respond_to do |format|
-      if @product.update(product_params)
+      if @product.update(product_params_update)
+        @product.rating = @product.parameter1+@product.parameter2+@product.parameter3+@product.parameter4+@product.parameter5
+        @product.rating/=5
+        @product.save
         format.html { redirect_to @product, notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -48,6 +51,7 @@ class ProductsController < ApplicationController
       end
     end
   end
+
 
   # DELETE /products/1 or /products/1.json
   def destroy
@@ -68,5 +72,10 @@ class ProductsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:title, :body, :avatar)
+    end
+
+    def product_params_update
+      params.require(:product).permit(:title, :body, :avatar, :parameter1, :parameter2,
+      :parameter3, :parameter4, :parameter5)
     end
 end

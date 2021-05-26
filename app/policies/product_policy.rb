@@ -23,7 +23,7 @@ class ProductPolicy
   end
 
   def update?
-    @current_user.admin?
+    @current_user.admin? ||   @current_user.expert?
   end
 
   def edit?

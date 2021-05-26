@@ -7,7 +7,7 @@
     <td>
       <button><%=f.submit 'Change role'%></button>
     </td>
-    <%end%>
+  <%end%>
 </td>
 <td>
   <%= link_to("Delete user", user_path(user), :method => :delete, :class => 'button') unless user == current_user %>
