@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
-
+<%if user_signed_in?%>
 <%@cart.each do |product|%>
 <%=product.title%>
 <%=button_to "Remove from cart", remove_from_cart_path(product), method: :delete%>
 <br>
+<%end%>
 <%end%>
 
 <table>

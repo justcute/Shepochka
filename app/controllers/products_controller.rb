@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   before_action :load_cart
 
   def initialize_session
-    if current_user.user?
+    if user_signed_in?
       session[:cart]||=[]
     end
   end
@@ -23,7 +23,9 @@ class ProductsController < ApplicationController
   end
 
   def load_cart
-    @cart=Product.find(session[:cart])
+    if user_signed_in?
+      @cart=Product.find(session[:cart])
+    end
   end
   # GET /products or /products.json
   def index
