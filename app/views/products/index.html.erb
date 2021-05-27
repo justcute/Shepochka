@@ -2,6 +2,12 @@
 
 <h1>Products</h1>
 
+<%@cart.each do |product|%>
+<%=product.title%>
+<%=button_to "Remove from cart", remove_from_cart_path(product), method: :delete%>
+<br>
+<%end%>
+
 <table>
   <thead>
     <tr>
@@ -20,6 +26,13 @@
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%if current_user.user?%>
+        <%if @cart.include?(product)%>
+        <td>Product in your cart</td>
+        <%else%>
+        <td><%= link_to "Add to cart", add_to_cart_path(product.id), method: :post%></td>
+        <%end%>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
