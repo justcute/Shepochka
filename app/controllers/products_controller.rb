@@ -29,7 +29,11 @@ class ProductsController < ApplicationController
   end
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @products = Product.search(params[:search]).order(:title).reverse_order.page(params[:page])
+  end
+
+  def index_rating_sort
+    @products = Product.search(params[:search]).order(:rating).reverse_order.page(params[:page])
   end
 
   # GET /products/1 or /products/1.json
@@ -102,6 +106,6 @@ class ProductsController < ApplicationController
 
     def product_params_update
       params.require(:product).permit(:title, :body, :avatar, :parameter1, :parameter2,
-      :parameter3, :parameter4, :parameter5)
+      :parameter3, :parameter4, :parameter5, :search)
     end
 end

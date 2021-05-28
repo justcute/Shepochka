@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
-    @users = User.page(params[:page])
+    @users = User.search(params[:search]).order(:role).reverse_order.page(params[:page])
     authorize User
   end
 
@@ -31,6 +31,6 @@ class UsersController < ApplicationController
 
   private
     def secure_params
-      params.require(:user).permit(:role)
+      params.require(:user).permit(:role, :search)
     end
 end
