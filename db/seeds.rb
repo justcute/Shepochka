@@ -13,3 +13,11 @@
                password:              password,
                password_confirmation: password)
 end
+
+email = "admin@gmail.com"
+password = "password"
+User.create!(
+             email: email,
+             password:              password,
+             password_confirmation: password,
+             role: 2)

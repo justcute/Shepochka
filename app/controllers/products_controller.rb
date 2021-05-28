@@ -70,8 +70,8 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params_update)
-        @product.rating = @product.parameter1+@product.parameter2+@product.parameter3+@product.parameter4+@product.parameter5
-        @product.rating/=5
+        @product.rating = @product.parameter1*0.3+@product.parameter2*0.1+@product.parameter3*0.1+@product.parameter4*0.15+@product.parameter5*0.35
+
         @product.save
         format.html { redirect_to @product, notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }

@@ -3,19 +3,30 @@
 <%= image_tag @product.avatar, style: "width: 500px; display: block" %>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Название:</strong>
   <%= @product.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>Описание:</strong>
   <%= @product.body %>
 </p>
 
 <p>
-  <strong>Rating:</strong>
-  <%= @product.rating %>
+  <strong>Рейтинг:</strong>
+  <%= @product.rating%>
+  <div class="rating-holder">
+    <div class="c-rating c-rating--big" data-rating-value="<%= @product.rating %>">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+    </div>
+  </div>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%if user_signed_in? && (current_user.admin? || current_user.expert?)%>
+<%= link_to 'Редактировать', edit_product_path(@product) %> |
+<%end%>
+<%= link_to 'Назад', products_path %>

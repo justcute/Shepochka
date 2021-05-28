@@ -1,8 +1,8 @@
-<h1>Editing Product</h1>
+<h1>Изменение продукта</h1>
 <%if current_user.admin?%>
 <%= render 'form', product: @product %>
 <%else%>
   <%= render 'parameters_form', product: @product %>
 <%end%>
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Показать', @product %> |
+<%= link_to 'Назад', products_path %>

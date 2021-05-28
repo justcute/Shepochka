@@ -11,15 +11,48 @@
     </div>
   <% end %>
 
-<%= form.select :parameter1, options_for_select([0, 1, 2, 3, 4, 5], Product.find(params[:id]).parameter1) %>
-<%= form.select :parameter2, options_for_select([0, 1, 2, 3, 4, 5], Product.find(params[:id]).parameter2) %>
-<%= form.select :parameter3, options_for_select([0, 1, 2, 3, 4, 5], Product.find(params[:id]).parameter3) %>
-<%= form.select :parameter4, options_for_select([0, 1, 2, 3, 4, 5], Product.find(params[:id]).parameter4) %>
-<%= form.select :parameter5, options_for_select([0, 1, 2, 3, 4, 5], Product.find(params[:id]).parameter5) %>
+
+
+  <%= image_tag @product.avatar, style: "width: 500px; display: block" %>
+
+  <p>
+    <strong>Название:</strong>
+    <%= @product.title %>
+  </p>
+
+  <p>
+    <strong>Описание:</strong>
+    <%= @product.body %>
+  </p>
+
+  <p>
+    <strong>Рейтинг:</strong>
+    <%= @product.rating%>
+    <div class="rating-holder">
+      <div class="c-rating c-rating--big" data-rating-value="<%= @product.rating %>">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+      </div>
+    </div>
+  </p>
+
+<p>Удобство:
+<%= form.select :parameter1, options_for_select([0, 1, 2, 3, 4, 5], Product.find(params[:id]).parameter1) %></p>
+<p>Форма:
+<%= form.select :parameter2, options_for_select([0, 1, 2, 3, 4, 5], Product.find(params[:id]).parameter2) %></p>
+<p>Цвет:
+<%= form.select :parameter3, options_for_select([0, 1, 2, 3, 4, 5], Product.find(params[:id]).parameter3) %></p>
+<p>Гармоничность:
+<%= form.select :parameter4, options_for_select([0, 1, 2, 3, 4, 5], Product.find(params[:id]).parameter4) %></p>
+<p>Лёгкость сборки:
+<%= form.select :parameter5, options_for_select([0, 1, 2, 3, 4, 5], Product.find(params[:id]).parameter5) %></p>
 
 
 <div class="actions">
-  <%= form.submit %>
+  <%=form.submit 'Обновить продукт'%>
 </div>
 
 

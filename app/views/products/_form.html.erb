@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label "Название" %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
+    <%= form.label "Описание" %>
     <%= form.text_area :body %>
   </div>
 
@@ -29,7 +29,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%=form.submit 'Обновить продукт'%>
   </div>
 
 
