@@ -15,7 +15,6 @@
  */
 @import "bootstrap";
 a{text-decoration: none;}
-
 ////
 /// Star Rating
 /// @group components
@@ -34,8 +33,7 @@ $rating-steps-value: .25 !default;
 $rating-color-empty: '%23ddd' !default;
 ///
 $rating-color-full: gold !default;
-///
-$rating-color-hover: grey !default;
+
 /// This variable is a map containing the "d" attribute of each of the SVG icons
 $rating-icons-paths: (
   quarter: 'M196.208 415.2v-224.8l-139.504 20.272 100.944 98.384-23.84 138.928z',
@@ -103,9 +101,6 @@ $rating-icons-paths: (
     @if $interaction-type == clickable {
       cursor: pointer;
       transition: background 0.25s ease;
-
-      // Override background images on hover state
-
     }
   }
 
@@ -153,6 +148,8 @@ $rating-icons-paths: (
 
   @return $target / $context+0em;
 }
+
+
 
 .rating-holder {
   display: inline-block;
