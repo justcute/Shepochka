@@ -31,6 +31,6 @@ class ProductPolicy
   end
 
   def destroy?
-    false
+    @current_user.admin? 
   end
 end
