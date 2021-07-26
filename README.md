@@ -1,24 +1,76 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Shepochka
 
-Things you may want to cover:
+Shepochka is application to furniture market
 
-* Ruby version
+---
 
-* System dependencies
+## Roles:
+  * Admin
 
-* Configuration
+  * Client
 
-* Database creation
+  * Expert
 
-* Database initialization
+---
+## Creation product
 
-* How to run the test suite
+Admin can create products with image and information about it
 
-* Services (job queues, cache servers, search engines, etc.)
+## Product rating
 
-* Deployment instructions
+Only expert can set rating on products by rating parameters
 
-* ...
+## Admin panel
+
+Admin can give rights to other users
+
+---
+## The main page
+
+The main page consists of
+*	Company info
+*	Navigation bar
+
+---
+
+---
+## Built with
+
+* Ruby 3.0.1
+
+* Rails 6.1.3.2
+
+---
+## Getting Started
+
+
+In order to get repository local:
+
+```
+cd <folder>
+
+git clone https://github.com/justcute/Shepochka.git
+
+ ```
+
+Then install gems with:
+
+```
+bundle install
+```
+
+Creating database and uploading seeds:
+
+```
+rails db:create
+rails db:migrate
+rails db:seed
+
+```
+
+To start 
+
+```
+rails s
+```  
